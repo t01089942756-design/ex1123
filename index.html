@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문조사 페이지</title>
+    <style>
+        /* 기본 초기화 및 폰트 설정 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f0ebf8; /* 구글 폼과 어울리는 연한 보라빛 배경 */
+            color: #202124;
+            line-height: 1.6;
+        }
+
+        /* 상단 내비게이션 바 */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #673ab7; /* 구글 폼 포인트 컬러 */
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #5f6368;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #673ab7;
+        }
+
+        /* 새 창으로 열기 버튼 스타일 */
+        .btn-external {
+            background-color: #673ab7;
+            color: #ffffff !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-external:hover {
+            background-color: #512da8;
+        }
+
+        /* 메인 컨테이너 및 구글 폼 임베드 영역 */
+        .container {
+            max-width: 840px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .notice-box {
+            background-color: #ffffff;
+            border-left: 4px solid #673ab7;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+        .notice-box a {
+            color: #673ab7;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .form-wrapper {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 1200px; /* 설문 길이에 맞게 숫자 조절 가능 */
+            border: none;
+            display: block;
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0.8rem 1rem;
+            }
+            .nav-links {
+                gap: 0.8rem;
+            }
+            .nav-links a:not(.btn-external) {
+                display: none; /* 모바일에서는 공간 확보를 위해 일반 메뉴 숨김 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 내비게이션 바 -->
+    <nav class="navbar">
+        <a href="#" class="nav-brand">📋 설문 참여</a>
+        <div class="nav-links">
+            <a href="#form-section">설문 작성하기</a>
+            <!-- 새 창으로 열기 링크 -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6uTXn3Ra0eD55BHUXMotueABW3RKsGPxHoDanjbHmhfDjlA/viewform" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-external">
+               새 창에서 열기 ↗
+            </a>
+        </div>
+    </nav>
+
+    <!-- 본문 영역 -->
+    <main class="container" id="form-section">
+        <!-- 보조 안내 및 텍스트 링크 -->
+        <div class="notice-box">
+            <span>화면에서 설문지가 보이지 않거나 모바일 환경에서 불편하신가요?</span>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6uTXn3Ra0eD55BHUXMotueABW3RKsGPxHoDanjbHmhfDjlA/viewform" 
+               target="_blank" 
+               rel="noopener noreferrer">
+               구글 폼 직접 열기 (새 창)
+            </a>
+        </div>
+
+        <!-- 구글 폼 임베디드 -->
+        <div class="form-wrapper">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSd6uTXn3Ra0eD55BHUXMotueABW3RKsGPxHoDanjbHmhfDjlA/viewform?embedded=true" 
+                title="구글 설문지">
+                로드 중…
+            </iframe>
+        </div>
+    </main>
+
+</body>
+</html>
